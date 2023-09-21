@@ -1,8 +1,6 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
+{% block content %}
 
 
     <title>M.E.A Add Student</title>
@@ -30,84 +28,81 @@
         }
 
     </style>
-</head>
-<body style="background-image: url({% static 'assets/img/a.jpg' %})">
-<link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-<div class="container bootstrap snippets bootdey">
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="jumbotron text-center"
-         style="min-height:520px;height:auto; background-image: url({% static 'assets/img/images.jpeg' %})">
-        <div class="col-md-10 col-md-offset-2">
-            <form class="form-horizontal" role="form" method="Post">
-                {% csrf_token %}
-                <div class="form-group text-center">
-                    <div class="col-sm-10 reg-icon">
-                        <span class="fa fa-user fa-3x">  Add Student</span>
+    </head>
+    <body style="background-image: url({% static 'assets/img/a.jpg' %})">
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <div class="container bootstrap snippets bootdey">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="jumbotron text-center"
+             style="min-height:520px;height:auto; background-image: url({% static 'assets/img/images.jpeg' %})">
+            <div class="col-md-10 col-md-offset-2">
+                <form class="form-horizontal" role="form" method="Post">
+                    {% csrf_token %}
+                    <div class="form-group text-center">
+                        <div class="col-sm-10 reg-icon">
+                            <span class="fa fa-user fa-3x">  Add Student</span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name='fullname' placeholder="Fullname">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name='fullname' placeholder="Fullname">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Username" name='fathers_name'
-                               placeholder="Father Name">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Username" name='fathers_name'
+                                   placeholder="Father Name">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" name='email' placeholder="Email">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" id="image" name='image' placeholder="Image">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name='passport_id' placeholder="Passport Id">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" name='email' placeholder="Email">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name='passport_jshr'
-                               placeholder="Passport Jshr">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name='passport_id' placeholder="Passport Id">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" name='phone'
-                               placeholder="Phone">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name='passport_jshr'
+                                   placeholder="Passport Jshr">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <select class="col-sm-10" name='group_name'>
-                        <optgroup label="Groups">
-                            {% for i in groups %}
-                                <option  value="{{ i.pk }}">{{ i.title }}</option>
-                            {% endfor %}
-                        </optgroup>
-                    </select>
-                    <br><br>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-info">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            Add Student
-                        </button>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name='phone'
+                                   placeholder="Phone">
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <input type="hidden" value="{{ gr.id }}" name="group_name">
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-info">
+                                <b>Add Student</b>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
 
-</script>
-</body>
-</html>
+    </script>
+    </body>
+{% endblock content %}

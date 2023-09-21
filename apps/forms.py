@@ -6,13 +6,13 @@ from .models import Register, Student, Groups
 class RegisterForm(ModelForm):
     class Meta:
         model = Register
-        fields = '__all__'
+        fields = 'name', 'username', 'email', 'password'
 
 
 class StudentForm(ModelForm):
     class Meta:
         model = Student
-        fields = '__all__'
+        exclude = 'create_at',
 
 
 class GroupsForm(ModelForm):

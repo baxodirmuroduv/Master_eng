@@ -1,20 +1,20 @@
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models import Model
 
 
 # Create your models here.
 
-class Register(Model):
+class Register(AbstractUser):
     name = models.CharField(max_length=255)
-    username = models.CharField(max_length=255)
-    email = models.EmailField(null=True, blank=True)
-    password = models.CharField(max_length=255)
+    create_at = models.DateTimeField(auto_now_add=True)
 
 
 class Student(Model):
     fullname = models.CharField(max_length=255)
     fathers_name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='student_image')
     email = models.EmailField(null=True, blank=True)
     passport_id = models.CharField(max_length=9, unique=True)
     passport_jshr = models.CharField(max_length=14, unique=True)

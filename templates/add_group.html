@@ -1,75 +1,69 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
+{% block content %}
+        <title>M.E.A Add Student</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+            .jumbotron label {
+                font-size: 12px;
+            }
 
+            .reg-icon {
+                color: #5bc0de;
+                font-weight: bold;
+                text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4) !important;
+            }
 
-    <title>M.E.A Add Student</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-        .jumbotron label {
-            font-size: 12px;
-        }
+            .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+                color: #fff;
+                background-color: #5bc0de;
+            }
 
-        .reg-icon {
-            color: #5bc0de;
-            font-weight: bold;
-            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4) !important;
-        }
+            .prj-name {
+                font-weight: bold;
+                color: #5bc0de;
+            }
 
-        .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-            color: #fff;
-            background-color: #5bc0de;
-        }
-
-        .prj-name {
-            font-weight: bold;
-            color: #5bc0de;
-        }
-
-    </style>
-</head>
-<body style="background-image: url({% static 'assets/img/a.jpg' %})">
-<link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-<div class="container bootstrap snippets bootdey">
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="jumbotron text-center"
-         style="min-height:520px;height:auto; background-image: url({% static 'assets/img/images.jpeg' %})">
-        <div class="col-md-10 col-md-offset-2">
-            <form class="form-horizontal" role="form" method="Post">
-                {% csrf_token %}
-                <div class="form-group text-center">
-                    <div class="col-sm-10 reg-icon">
-                        <h2>Add Group</h2>
+        </style>
+    <body style="background-image: url({% static 'assets/img/a.jpg' %})">
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <div class="container bootstrap snippets bootdey">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="jumbotron text-center"
+             style="min-height:470px;height:auto; margin-top: 0px; background-image: url({% static 'assets/img/images.jpeg' %})">
+            <div class="col-md-10 col-md-offset-2">
+                <form class="form-horizontal" role="form" method="Post">
+                    {% csrf_token %}
+                    <div class="form-group text-center">
+                        <div class="col-sm-10 reg-icon">
+                            <h2>Add Group</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name='title' placeholder="Group title">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name='title' placeholder="Group title">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-info">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            Add Group
-                        </button>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-info">
+                                <b>Add Group</b>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
 
-</script>
-</body>
-</html>
+    </script>
+    </body>
+{% endblock content %}

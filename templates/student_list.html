@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,7 +156,7 @@
         }
     </style>
 </head>
-<body style="background-color: cornflowerblue">
+<body style="background-image: url({% static 'assets/img/images.jpeg' %})">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootdey">
     <div class="col-md-12">
@@ -166,7 +167,9 @@
                         <div class="img-wrapper">
                             <a href="{% url 'profile' i.pk %}">
                                 <img alt="Product"
-                                     src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg">
+{#                                     src="https://upload.wikimedia.org/wikipedia/commons/a/ac/De  fault_pfp.jpg">#}
+{#                                     src="https://bootdey.com/img/Content/avatar/avatar6.png">#}
+                                     src="{% static 'assets/img/aka.jpg' %}">
                             </a>
                         </div>
                         <a href="{% url 'profile' i.pk %}"><h4>{{ i.fullname }}</h4></a>
@@ -176,19 +179,17 @@
                 </div>
             {% endif %}
         {% endfor %}
-        <div class="col-sm-4 col-md-3 box-product-outer" style="background-color: darkturquoise">
-            <div class="box-product">
-                <div class="img-wrapper">
-                    <a href="/">
-                        <img alt=''
-                             src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg">
-                    </a>
-                </div>
-                <a href="{% url 'add' %}"><h4>Add Student New</h4></a>
-                <h6>🇺🇿</h6>
-                <h6>🇸🇭</h6>
-            </div>
-        </div>
+        <a href="{% url 'add' group.id %}">
+            <button class="col-sm-4 col-md-3 box-product-outer" style="background-color: darkturquoise">Add Student
+                New
+            </button>
+        </a>
+        <form method="post" action="{% url 'delete' group.id %}">
+            {% csrf_token %}
+                <button type="submit" class="col-sm-4 col-md-3 box-product-outer"
+                        style="background-color: darkturquoise">Group Delete
+                </button>
+        </form>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
